@@ -1,8 +1,8 @@
 networks:
  default:
-   driver: bride
+   driver: bridge
    name: roboshop
-   external: true
+  #  external: true
 services:
  mongodb:
    image: joindevops/mongodb:v1
