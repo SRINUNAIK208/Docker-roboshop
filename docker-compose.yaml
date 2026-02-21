@@ -1,4 +1,4 @@
-network:
+networks:
  default:
    driver: bride
    name: roboshop
