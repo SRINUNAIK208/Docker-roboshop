@@ -29,7 +29,7 @@ services:
    - catalogue
  mysql:
    image: joindevops/mysql:v1
-   conatiner_name: mysql
+   container_name: mysql
  shipping:
    image: joindevops/shipping:v1
    container_name: shipping
@@ -38,7 +38,7 @@ services:
    - mysql
  rabbitmq:
    image: rabbitmq:3
-   conatiner_name: rabbitmq
+   container_name: rabbitmq
    environment:
      RABBITMQ_DEFAULT_USER: roboshop
      RABBITMQ_DEFAULT_PASS: roboshop123
@@ -59,7 +59,7 @@ services:
 
  frontend:
    image: joindevops/frontend:v1
-   conatiner_name: frontend
+   container_name: frontend
    ports:
    - "80:80"
    depends_on:
