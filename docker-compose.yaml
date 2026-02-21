@@ -1,0 +1,73 @@
+network:
+ default:
+   driver: bride
+   name: roboshop
+   external: true
+services:
+ mongodb:
+   image: joindevops/mongodb:v1
+   container_name: mongodb
+ catalogue:
+   image: joindevops/catalogue:v1
+   container_name: catalogue
+   depends_on:
+   - mongodb
+ redis:
+   image: redis:7.0
+   container_name: redis
+ user:
+   images: joindevops/user:v1
+   container_name: user
+   depends_on:
+   - mongodb
+   - redis
+ cart:
+   images: joindevops/cart:v1
+   container_name: cart
+   depends_on:
+   - redis
+   - catalogue
+ mysql:
+   image: joindevops/mysql:v1
+   conatiner_name: mysql
+ shipping:
+   imges: joindevops/shipping:v1
+   container_name: shipping
+   depends_on:
+   - cart
+   - mysql
+ rabbitmq:
+   image: joindevops/rabbitmq:v1
+   conatiner_name: rabbitmq
+   environment:
+     RABBITMQ_DEFAULT_USER: roboshop
+     RABBITMQ_DEFAULT_PASS: roboshop123
+
+ payment:
+   image: joindevops/payment:v1
+   container_name: payment
+   environment:
+    CART_HOST: cart
+    CART_PORT: 8080
+    USER_HOST: user
+    USER_PORT: 8080
+    AMQP_HOST: rabbitmq
+   depends_on:
+   - cart
+   - user
+   - rabbitmq
+
+ frontend:
+   image: joindevops/frontend:v1
+   conatiner_name: frontend
+   ports:
+   - "80:80"
+   depends_on:
+   - catalogue
+   - user
+   - cart
+   - shipping
+   - payment
+
+  
+   
