@@ -16,13 +16,13 @@ services:
    image: redis:7.0
    container_name: redis
  user:
-   images: joindevops/user:v1
+   image: joindevops/user:v1
    container_name: user
    depends_on:
    - mongodb
    - redis
  cart:
-   images: joindevops/cart:v1
+   image: joindevops/cart:v1
    container_name: cart
    depends_on:
    - redis
@@ -31,7 +31,7 @@ services:
    image: joindevops/mysql:v1
    conatiner_name: mysql
  shipping:
-   imges: joindevops/shipping:v1
+   image: joindevops/shipping:v1
    container_name: shipping
    depends_on:
    - cart
