@@ -37,7 +37,7 @@ services:
    - cart
    - mysql
  rabbitmq:
-   image: joindevops/rabbitmq:v1
+   image: rabbitmq:3
    conatiner_name: rabbitmq
    environment:
      RABBITMQ_DEFAULT_USER: roboshop
