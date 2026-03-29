@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if[ -f /tmp/mysql_root_password ]; then
+if [ -f /tmp/mysql_root_password ]; then
  PASSWORD=$(cat /tmp/mysql_root_password)
  echo "Accessed Root password"
 else
