@@ -10,4 +10,4 @@ fi
 
 export MYSQL_ROOT_PASSWORD=$PASSWORD
 
-exec /entrypoint.sh, mysqld
+exec /entrypoint.sh mysqld
