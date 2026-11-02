@@ -1,7 +1,7 @@
 FROM python:3.15-alpine
 WORKDIR /opt/roboshop
 COPY requirements.txt .
-RUN RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 COPY *.py .
 COPY payment.ini .
 ENV CART_HOST="cart" \
