@@ -1,6 +1,6 @@
 FROM maven 
 WORKDIR /opt/roboshop 
-COPY src/ /opt/roboshop
+COPY src /opt/roboshop/src
 COPY pom.xml /opt/roboshop
 RUN mvn clean package 
 RUN mv /opt/roboshop/target/shipping-1.0.jar /opt/roboshop/shipping.jar 
