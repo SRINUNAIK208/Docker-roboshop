@@ -1,4 +1,4 @@
-FROM python:3.15-alpine
+FROM python:3.9
 WORKDIR /opt/roboshop
 COPY *.py .
 COPY payment.ini .
